@@ -1,0 +1,312 @@
+<div class="content">
+    <div class="container-fluid">
+
+        <div >
+            <!--  create modal starts -->
+            <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createCourtSubmissionModal"
+                tabindex="-1" role="dialog" aria-labelledby="createCourtSubmissionModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="createCourtSubmissionModal">New court submission</h5>
+                            <button wire:clicl.prevent="cancel()" type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card card-warning card-outline">
+                                <div class="card card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12">
+                                            <i>add a new court submission</i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group position-relative">
+                                                    <label for="validationTooltip01">Court submission</label>
+                                                    <input type="text" class="form-control" name="name"
+                                                        wire:model="name" id="validationTooltip01"
+                                                        placeholder="Enter court submission name" required="">
+                                                    <div class="mt-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group position-relative">
+                                                    <label for="validationTooltip02">Case registry</label>
+                                                    <select wire:model="case_register_id" name="case_register_id"
+                                                        id="case_register_id" class="form-control">
+                                                        <option value="" selected="">Select case register</option>
+                                                        <option value="1">Civil</option>
+                                                        <option value="2">Criminal</option>
+                                                    </select>
+                                                    <div class="mt-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="cancel()" type="submit"
+                                class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+                                <i class="mdi mdi-close"></i> Close
+                            </button>
+                            <button wire:click.prevent="store()" type="submit" class="btn btn-primary">
+                                <i class="mdi mdi-content-save"></i> Save court room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  create modal ends -->
+            <!--  update modal starts -->
+            <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="updateCourtSubmissionModal"
+                tabindex="-1" role="dialog" aria-labelledby="updateCourtSubmissionModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="updateCourtSubmissionModal">Edit court submission</h5>
+                            <button wire:clicl.prevent="cancel()" type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card card-warning card-outline">
+                                <div class="card card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12">
+                                            <i>edit the specified court submission</i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group position-relative">
+                                                    <label for="validationTooltip01">Court submission</label>
+                                                    <input type="text" class="form-control" name="name"
+                                                        wire:model="name" id="validationTooltip01"
+                                                        placeholder="Enter court submission name" required="">
+                                                    <div class="mt-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group position-relative">
+                                                    <label for="validationTooltip02">Case registry</label>
+                                                    <select wire:model="case_register_id" name="case_register_id"
+                                                        id="case_register_id" class="form-control">
+                                                        <option value="" selected="">Select case register</option>
+                                                        <option value="1">Civil</option>
+                                                        <option value="2">Criminal</option>
+                                                    </select>
+                                                    <div class="mt-1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="cancel()" type="submit"
+                                class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+                                <i class="mdi mdi-close"></i> Close
+                            </button>
+                            <button wire:click.prevent="update()" type="submit" class="btn btn-primary">
+                                <i class="mdi mdi-content-save"></i> Save changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  update modal ends -->
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title">Court Submissions</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"><i
+                                        class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Court Data</a></li>
+                            <li class="breadcrumb-item active">Court Submissions</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-secondary card-outline">
+                        <div class="card card-header">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <h5 classname="card-title">List of court submissions</h5>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-secondary btn-sm 
+                    waves-effect waves-light float-right" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                        <i class="mdi mdi-plus"></i> New court submission
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center mb-4">
+                                <div class="col-sm-2">
+                                    <select wire:model="perPage" class="form-control">
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <select wire:model="orderAsc" class="form-control">
+                                        <option value="1">Ascending</option>
+                                        <option value="0">Descending</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                        id="validationCustom01" placeholder="Search by court submission name...">
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <table id="datatable-buttons" class="table table-striped dt-responsive nowrap"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Court submission</th>
+                                        <th>Case registry</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="col-sm-1">1</td>
+                                        <td class="col-sm-3">For filing of the Plaint</td>
+                                        <td class="col-sm-2">Civil</td>
+                                        <td class="col-sm-2">
+                                            <a title="Edit" data-toggle="modal"
+                                                data-target="#updateCourtSubmissionModal" wire:click.prevent="edit(1)"
+                                                href="#">
+                                                <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="Delete"
+                                                href="https://cms.judiciary.go.tz/court/submissions/1/delete">
+                                                <i class="mdi mdi-close text-danger fa-lg"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-1">2</td>
+                                        <td class="col-sm-3">For lodging an appeal</td>
+                                        <td class="col-sm-2">Civil</td>
+                                        <td class="col-sm-2">
+                                            <a title="Edit" data-toggle="modal"
+                                                data-target="#updateCourtSubmissionModal" wire:click.prevent="edit(2)"
+                                                href="#">
+                                                <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="Delete"
+                                                href="https://cms.judiciary.go.tz/court/submissions/2/delete">
+                                                <i class="mdi mdi-close text-danger fa-lg"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-1">3</td>
+                                        <td class="col-sm-3">For filing of the Application</td>
+                                        <td class="col-sm-2">Civil</td>
+                                        <td class="col-sm-2">
+                                            <a title="Edit" data-toggle="modal"
+                                                data-target="#updateCourtSubmissionModal" wire:click.prevent="edit(3)"
+                                                href="#">
+                                                <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="Delete"
+                                                href="https://cms.judiciary.go.tz/court/submissions/3/delete">
+                                                <i class="mdi mdi-close text-danger fa-lg"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-1">4</td>
+                                        <td class="col-sm-3">For an application for reference</td>
+                                        <td class="col-sm-2">Civil</td>
+                                        <td class="col-sm-2">
+                                            <a title="Edit" data-toggle="modal"
+                                                data-target="#updateCourtSubmissionModal" wire:click.prevent="edit(4)"
+                                                href="#">
+                                                <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="Delete"
+                                                href="https://cms.judiciary.go.tz/court/submissions/4/delete">
+                                                <i class="mdi mdi-close text-danger fa-lg"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-1">5</td>
+                                        <td class="col-sm-3">For an application for revision</td>
+                                        <td class="col-sm-2">Civil</td>
+                                        <td class="col-sm-2">
+                                            <a title="Edit" data-toggle="modal"
+                                                data-target="#updateCourtSubmissionModal" wire:click.prevent="edit(5)"
+                                                href="#">
+                                                <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="Delete"
+                                                href="https://cms.judiciary.go.tz/court/submissions/5/delete">
+                                                <i class="mdi mdi-close text-danger fa-lg"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
+                                    <span>
+
+                                        <span
+                                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+                                            « Previous
+                                        </span>
+                                    </span>
+
+                                    <span>
+
+                                        <button wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                            dusk="nextPage"
+                                            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                            Next »
+                                        </button>
+                                    </span>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+
+        </div>
+
+    </div>
+</div>

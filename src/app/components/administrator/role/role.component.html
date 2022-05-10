@@ -1,0 +1,163 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body"> 
+<div class="content">
+    <div class="container-fluid">
+        <div class="container mx-auto">
+
+            <div>
+                <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createRoleModal" tabindex="-1"
+                    role="dialog" aria-labelledby="createRoleModal" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title mt-0" id="createRoleModal">Add new Role</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card card-warning card-outline">
+                                    <div class="card card-header">
+                                        <div class="row align-items-center">
+                                            <div class="col-sm-12">
+                                                <i>add a new role</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+
+                        </div>
+                    </div>
+                </div>
+                
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card card-body">
+                            <button class="btn btn-clear" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                <img src="https://cms.judiciary.go.tz/assets/images/user-role.png" alt="" class="mb-5">
+                                <div class="h6 text-black-50">Add New Role</div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                   
+                    <div class="col-sm-4">
+                        <div class="card card-secondary card-outline">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-12">
+                                        <h5 classname="card-title">administrative-officer</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title mt-0 font-weight-bold">Total users with this role: 0 </div>
+
+                                <div class="align-content-center mt-2">
+                                    <a title="View" href="https://cms.judiciary.go.tz/users/roles/21/show"
+                                        class="btn btn-outline-dark waves-effect waves-light">
+                                        View Role
+                                    </a>
+                                    <a title="Edit Role" data-toggle="modal" data-target="#update_modal21"
+                                        class="btn btn-outline-primary waves-effect waves-light" href="#"> Edit Role
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="update_modal21" tabindex="-1"
+                        role="dialog" aria-labelledby="createRoleModal" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="createRoleModal">Edit Role</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-warning text-black-50 float-right"
+                                        data-dismiss="modal">
+                                        <i class="mdi mdi-close"></i> Close
+                                    </button>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="mdi mdi-content-save"></i> Save changes
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="card card-secondary card-outline">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-12">
+                                        <h5 classname="card-title">advocate</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-title mt-0 font-weight-bold">Total users with this role: 3 </div>
+                                <span class=""> </span>
+                                <ul class="list-unstyled">
+                                    <li class="mdi bullet">
+                                        <i class="ion ion-md-arrow-round-forward"></i> Add Civil Efiling
+                                    </li>
+                                </ul>
+                                <span class=""> </span>
+                                <ul class="list-unstyled">
+                                    <li class="mdi bullet">
+                                        <i class="ion ion-md-arrow-round-forward"></i> View Civil Efiling
+                                    </li>
+                                </ul>
+                                <span class=""> </span>
+                                <ul class="list-unstyled">
+                                    <li class="mdi bullet">
+                                        <i class="ion ion-md-arrow-round-forward"></i> Edit Civil Efiling
+                                    </li>
+                                </ul>
+
+                                <ul class="list-unstyled">
+                                    <li class="mdi bullet">
+                                        <a href="https://cms.judiciary.go.tz/users/roles/8/show" class="">View more
+                                            permissions</a>
+                                    </li>
+                                </ul>
+                                <div class="align-content-center mt-2">
+                                    <a title="View" href="https://cms.judiciary.go.tz/users/roles/8/show"
+                                        class="btn btn-outline-dark waves-effect waves-light">
+                                        View Role
+                                    </a>
+                                    <a title="Edit Role" data-toggle="modal" data-target="#update_modal8"
+                                        class="btn btn-outline-primary waves-effect waves-light" href="#"> Edit Role
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

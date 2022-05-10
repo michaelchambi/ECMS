@@ -1,0 +1,143 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+    <header class="c-header c-header-light c-header-fixed c-header-shadow">
+        <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+            <span class="c-header-toggler-icon"></span>
+        </button>
+        <div class="c-header-brand">
+            <strong>{{title|uppercase}}</strong>
+        </div>
+    </header>
+
+    <div class="c-body">
+        <div class="content">
+            <div class="container-fluid">
+
+                <div>
+                    <div class="page-title-box">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <h4 class="page-title">Courts</h4>
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);"><i
+                                                class="mdi mdi-home-outline"></i></a>
+                                    </li>
+                                    <li class="breadcrumb-item"><a href="javascript:void(0);">Court Data</a></li>
+                                    <li class="breadcrumb-item active">Courts</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card card-secondary card-outline">
+                                <div class="card card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-6">
+                                            <h5 classname="card-title">List of courts</h5>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <button type="submit" class="btn btn-secondary btn-sm 
+                    waves-effect waves-light float-right" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                                <i class="mdi mdi-plus"></i> New court
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-sm-2">
+                                            <select wire:model="perPage" class="form-control">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select wire:model="orderAsc" class="form-control">
+                                                <option value="1">Ascending</option>
+                                                <option value="0">Descending</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                                id="validationCustom01" placeholder="Search by court name...">
+                                        </div>
+                                    </div>
+                                    <!-- end row -->
+
+                                    <table id="datatable-buttons" class="table table-striped dt-responsive nowrap"
+                                        style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Court</th>
+                                                <th>Code</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-sm-1">1</td>
+                                                <td class="col-sm-4">Arusha Court of Appeal</td>
+                                                <td class="col-sm-2">CAT</td>
+                                                <td class="col-sm-2">
+                                                    <a href="https://cms.judiciary.go.tz/court/1/status">
+                                                        <span class="badge badge-soft-danger btn-sm">
+                                                            inactive
+                                                        </span>
+                                                    </a>
+                                                </td>
+                                                <td class="col-sm-2">
+                                                    <a title="Edit" data-toggle="modal" data-target="#updateCourtModal"
+                                                        wire:click.prevent="edit(1)" href="#">
+                                                        <i class="mdi mdi-pencil text-primary fa-lg"></i>
+                                                    </a>
+                                                    <a title="Delete"
+                                                        href="https://cms.judiciary.go.tz/courts/1/delete">
+                                                        <i class="mdi mdi-close text-danger fa-lg"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <nav role="navigation" aria-label="Pagination Navigation"
+                                            class="flex justify-between">
+                                            <span>
+
+                                                <span
+                                                    class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+                                                    « Previous
+                                                </span>
+                                            </span>
+
+                                            <span>
+
+                                                <button wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                                    dusk="nextPage"
+                                                    class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                                    Next »
+                                                </button>
+                                            </span>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!-- end col -->
+                    </div> <!-- end row -->
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>

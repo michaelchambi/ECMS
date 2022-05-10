@@ -1,0 +1,16 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+    <header class="c-header c-header-light c-header-fixed c-header-shadow">
+        <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+            <span class="c-header-toggler-icon"></span>
+        </button>
+        <div class="c-header-brand">
+            <strong>{{title|uppercase}}</strong>
+        </div>
+    </header>
+
+    <div class="c-body">
+        <p>operations works!</p>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+@media screen and (min-width: 360px) {}
+
+@media screen and (min-width: 760px) {}
+
+@media screen and (min-width: 1000px) {
+    .wrapper{
+        width:100%;background-color:rgb(249, 249, 249);
+    }
+   .myform{
+    border:1px solid #ced2d8;
+     border-radius:12px; 
+     padding:40px;
+     margin:0;
+     background-color: #ffff;
+   }
+}

@@ -1,0 +1,629 @@
+<div class="static-header">
+    <span class="logo-light">
+        <img class="imag-top" src="../../../assets/images/jot-logo-light.png" alt="" height="30">
+    </span> 
+</div>
+<ul class="c-sidebar-nav">
+    <li class="c-sidebar-nav-item dashboard">
+        <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/dashboard" routerLinkActive="c-active">
+           
+            <i class="c-sidebar-nav-icon cil-gauge"></i> Dashboard
+        </a>
+    </li>
+
+    <li class="c-sidebar-nav-title">e-Case Management</li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-bolt"></i> eCase Filing
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/civil-filing" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Filing
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/criminal-filing" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Filing
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-archive"></i> Case Registries
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link"  matRipple routerLink="/civil" >
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Registries
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple routerLink="/criminal" >
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Registries
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-bookmark"></i> Case Admissions
+   
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple routerLink="/civil-admissions" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Admissions
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/criminal-admissions" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Admissions
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-user-plus"></i> Case Assignments
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/civil-assignment" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Assignments
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/criminal-assignment" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Assignments
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-gavel"></i> Case Decisions
+   
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/civil-decision" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Decisions
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/criminal-decision" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Decisions
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="c-sidebar-nav-title">Court of Appeal</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-paper-plane"></i> Appeal Notices
+   
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Notices
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Notices
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li  class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-backward"></i>Case Appeals
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Civil Appeals
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Criminal Appeals
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="c-sidebar-nav-title">Bills & Payments</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-money"></i>Bills & Payments
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Bills Management
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Reconciliations
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Other Payments
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+   
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-bank"></i>Revenue Collections
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Bills Management
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Reconciliations
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Other Payments
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+    <li class="c-sidebar-nav-title">Case Reports</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-copy"></i>Case Reports
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Statistical Reports
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Register
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Cause List
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Summons Reports
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+    <li class="c-sidebar-nav-title">Case administration</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-briefcase"></i>Administration
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i>Officer Groups
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Positions
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Seniorities
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+
+
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-user"></i>Court Officer
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i>Judges
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Registrars
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Magistrates
+                   
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-building-o"></i>Stakeholders
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Advocates
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Attorneys
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Firms
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Stakeholders
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+    
+    
+    <li class="c-sidebar-nav-title">Master Data</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-bullseye"></i>Case Data
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Register
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Type
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Subtype
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Mode Determinations
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Proceeding Outcomes
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Stages
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Outcomes
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Case Nature
+                   
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Charges / Offense
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-list-alt"></i>Court Data
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/court-level" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Court Level
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple matRipple routerLink="/courts" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Courts
+                    
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple matRipple routerLink="/court-room" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Court Room
+                    
+                </a>
+            </li>
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/court-submission" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Court Submissions
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-map-marker"></i>Location
+            
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/zone" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Zones
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/region" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Regions
+                    
+                </a>
+            </li>
+
+            
+
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/district" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Destricts
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/municiple" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Municiples
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/ward" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Wards
+                   
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/village" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Villages
+                   
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+
+    <li class="c-sidebar-nav-title">System Management</li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-cubes"></i> Components
+   
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/system-operations" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> System Operations
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/system-modules" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Modules
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/system-submodules" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Sub Modules
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-users"></i> User Access
+   
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/roles" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> User Roles
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/permissions" routerLinkActive="c-active">
+                    <!-- simple line icon -->
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> User Permissions
+                    
+                </a>
+            </li>
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()" class="c-sidebar-nav-link" matRipple routerLink="/users" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> System Users
+                   
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li   class="c-sidebar-nav-dropdown" >
+        <a class="c-sidebar-nav-dropdown-toggle" matRipple appToggle>
+            <i class="c-sidebar-nav-icon fa fa-users"></i> Systems Logs
+        </a>
+
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item">
+                <a  *ngIf="auth.loggedIn()"class="c-sidebar-nav-link" matRipple matRipple routerLink="/" routerLinkActive="c-active">
+                    <i class="c-sidebar-nav-icon fa fa-angle-right"></i> Audit Logs  
+                </a>
+            </li>
+        </ul>
+    </li>
+    <ng-content></ng-content>
+</ul>
+<div class="static-footer">
+
+</div>
+

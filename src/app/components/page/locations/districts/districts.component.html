@@ -1,0 +1,449 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    <div class="content">
+        <div class="container-fluid">
+            
+    <div class="container mx-auto">
+    <div>
+    <!--  create modal starts -->
+    <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createDistrictModal" tabindex="-1" role="dialog" aria-labelledby="createDistrictModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="createDistrictModal">New district</h5>
+        <button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-warning card-outline">
+                    <div class="card card-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <i>add a new district</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip01">District</label>
+                                        <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter district name" required="">
+                                        <div class="mt-1">
+                                                                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip02">Code</label>
+                                        <input type="text" class="form-control" name="code" wire:model="code" id="validationTooltip02" placeholder="Enter district code" required="">
+                                        <div class="mt-1">
+                                                                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip03">Region</label>
+                                            <select wire:model="region_id" name="region_id" id="region_id" class="form-control" required="">
+                                                <option value="" selected="">Select region...</option>
+                                                                                                            <option value="16">Arusha Region</option>
+                                                                                                            <option value="23">Manyara Region</option>
+                                                                                                            <option value="28">Kagera Region</option>
+                                                                                                            <option value="36">Dar es Salaam Region</option>
+                                                                                                            <option value="42">Pwani Region</option>
+                                                                                                            <option value="50">Morogoro Region</option>
+                                                                                                            <option value="57">Dodoma Region</option>
+                                                                                                            <option value="65">Singida Region</option>
+                                                                                                            <option value="70">Iringa Region</option>
+                                                                                                            <option value="74">Njombe Region</option>
+                                                                                                            <option value="79">Mbeya Region</option>
+                                                                                                            <option value="85">Songwe Region</option>
+                                                                                                            <option value="90">Kilimanjaro Region</option>
+                                                                                                            <option value="97">Mtwara Region</option>
+                                                                                                            <option value="103">Lindi Region</option>
+                                                                                                            <option value="109">Mwanza Region</option>
+                                                                                                            <option value="117">Mara Region</option>
+                                                                                                            <option value="124">Geita Region</option>
+                                                                                                            <option value="130">Shinyanga Region</option>
+                                                                                                            <option value="134">Simiyu Region</option>
+                                                                                                            <option value="140">Ruvuma Region</option>
+                                                                                                            <option value="146">Rukwa Region</option>
+                                                                                                            <option value="150">Katavi Region</option>
+                                                                                                            <option value="154">Tabora Region</option>
+                                                                                                            <option value="162">Kigoma Region</option>
+                                                                                                            <option value="169">Tanga Region</option>
+                                                                                                    </select>
+                                            <div class="mt-1">
+                                                                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+    </div>
+    <div class="modal-footer">
+        <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+            <i class="mdi mdi-close"></i> Close
+        </button>
+        <button wire:click.prevent="store()" type="submit" class="btn btn-primary">
+            <i class="mdi mdi-content-save"></i> Save district
+        </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--  create modal ends -->    <!--  update modal starts -->
+    <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="updateDistrictModal" tabindex="-1" role="dialog" aria-labelledby="updateDistrictModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="updateDistrictModal">Edit district</h5>
+        <button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-warning card-outline">
+                    <div class="card card-header">
+                        <div class="row align-items-center">
+                            <div class="col-sm-6">
+                                <i>edit the specified district</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip01">District</label>
+                                        <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter district name" required="">
+                                        <div class="mt-1">
+                                                                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip02">Code</label>
+                                        <input type="text" class="form-control" name="code" wire:model="code" id="validationTooltip02" placeholder="Enter district code" required="">
+                                        <div class="mt-1">
+                                                                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group position-relative">
+                                        <label for="validationTooltip03">Region</label>
+                                            <select wire:model="region_id" name="region_id" id="region_id" class="form-control" required="">
+                                                <option value="" selected="">Select region...</option>
+                                                                                                            <option value="16">Arusha Region</option>
+                                                                                                            <option value="23">Manyara Region</option>
+                                                                                                            <option value="28">Kagera Region</option>
+                                                                                                            <option value="36">Dar es Salaam Region</option>
+                                                                                                            <option value="42">Pwani Region</option>
+                                                                                                            <option value="50">Morogoro Region</option>
+                                                                                                            <option value="57">Dodoma Region</option>
+                                                                                                            <option value="65">Singida Region</option>
+                                                                                                            <option value="70">Iringa Region</option>
+                                                                                                            <option value="74">Njombe Region</option>
+                                                                                                            <option value="79">Mbeya Region</option>
+                                                                                                            <option value="85">Songwe Region</option>
+                                                                                                            <option value="90">Kilimanjaro Region</option>
+                                                                                                            <option value="97">Mtwara Region</option>
+                                                                                                            <option value="103">Lindi Region</option>
+                                                                                                            <option value="109">Mwanza Region</option>
+                                                                                                            <option value="117">Mara Region</option>
+                                                                                                            <option value="124">Geita Region</option>
+                                                                                                            <option value="130">Shinyanga Region</option>
+                                                                                                            <option value="134">Simiyu Region</option>
+                                                                                                            <option value="140">Ruvuma Region</option>
+                                                                                                            <option value="146">Rukwa Region</option>
+                                                                                                            <option value="150">Katavi Region</option>
+                                                                                                            <option value="154">Tabora Region</option>
+                                                                                                            <option value="162">Kigoma Region</option>
+                                                                                                            <option value="169">Tanga Region</option>
+                                                                                                    </select>
+                                            <div class="mt-1">
+                                                                                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
+    </div>
+    <div class="modal-footer">
+        <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+            <i class="mdi mdi-close"></i> Close
+        </button>
+        <button wire:click.prevent="update()" type="submit" class="btn btn-primary">
+            <i class="mdi mdi-content-save"></i> Save changes
+        </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--  update modal ends -->    <div class="page-title-box">
+    <div class="row align-items-center">
+    <div class="col-sm-6">
+        <h4 class="page-title">Districts</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0);"><i class="mdi mdi-home-outline"></i></a>
+            </li>
+            <li class="breadcrumb-item"><a href="javascript:void(0);">Locations</a></li>
+            <li class="breadcrumb-item active">Districts</li>
+        </ol>
+    </div>
+    </div> <!-- end row -->
+    </div>
+    <!-- end page-title -->
+    
+    
+    <div class="row">
+    <div class="col-12">
+    <div class="card card-secondary card-outline">
+        <div class="card card-header">
+            <div class="row align-items-center">
+                <div class="col-sm-6">
+                    <h5 classname="card-title">List of districts</h5>
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-secondary btn-sm 
+                            waves-effect waves-light float-right" data-toggle="modal" data-target="#createDistrictModal">
+                        <i class="mdi mdi-plus"></i> New District
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-center mb-4">
+                <div class="col-sm-2">
+                    <select wire:model="perPage" class="form-control">
+                        <option>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                        <option>100</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select wire:model="orderAsc" class="form-control">
+                        <option value="1">Ascending</option>
+                        <option value="0">Descending</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <input wire:model.debounce.300ms="search" type="text" class="form-control" id="validationCustom01" placeholder="Search by district name...">
+                </div>
+            </div>
+            <!-- end row -->
+    
+            <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>District</th>
+                        <th>Code</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">1</td>
+                        <td class="col-sm-3">Arusha District</td>
+                        <td class="col-sm-3">ARS</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(17)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/17/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">2</td>
+                        <td class="col-sm-3">Arumeru District</td>
+                        <td class="col-sm-3">ARM</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(18)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/18/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">3</td>
+                        <td class="col-sm-3">Karatu District</td>
+                        <td class="col-sm-3">KRT</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(19)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/19/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">4</td>
+                        <td class="col-sm-3">Longido District</td>
+                        <td class="col-sm-3">LNG</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(20)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/20/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">5</td>
+                        <td class="col-sm-3">Monduli District</td>
+                        <td class="col-sm-3">MDL</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(21)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/21/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">6</td>
+                        <td class="col-sm-3">Ngorongoro District</td>
+                        <td class="col-sm-3">NGR</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(22)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/22/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">7</td>
+                        <td class="col-sm-3">Mbulu District</td>
+                        <td class="col-sm-3">MBL</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(24)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/24/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">8</td>
+                        <td class="col-sm-3">Hanang District</td>
+                        <td class="col-sm-3">HNG</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(25)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/25/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">9</td>
+                        <td class="col-sm-3">Kiteto District</td>
+                        <td class="col-sm-3">KTT</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(26)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/26/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                                <tr role="role" class="even">
+                        <td class="col-sm-1">10</td>
+                        <td class="col-sm-3">Simanjiro District</td>
+                        <td class="col-sm-3">SMR</td>
+                        <td class="col-sm-2">
+                            <a title="Edit" data-toggle="modal" data-target="#updateDistrictModal" wire:click.prevent="edit(27)" href="#">
+                                <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                            </a>
+                            <a title="Delete" href="https://cms.judiciary.go.tz/locations/districts/27/delete" >
+                                <i class="text-danger fa fa-close"></i>
+                            </a>
+                        </td>
+                    </tr>
+                                            </tbody>
+            </table>
+            <div>
+    <nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
+    <span>
+        
+                            <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+                « Previous
+            </span>
+                    </span>
+    
+    <span>
+        
+                                                    <button wire:click="nextPage('page')" wire:loading.attr="disabled" dusk="nextPage" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                        Next »
+                </button>
+                                        </span>
+    </nav>
+    </div>
+        </div>
+    </div>
+    </div> <!-- end col -->
+    </div> <!-- end row -->
+    </div>
+    
+    <script>
+    Livewire.on('districtCreated', () => {
+    $('#createDistrictModal').modal('hide');
+    });
+    
+    Livewire.on('districtUpdated', () => {
+    $('#updateDistrictModal').modal('hide');
+    });
+    </script>
+    </div>
+    
+    
+        </div>
+    </div>
+  </div>
+</div>
+

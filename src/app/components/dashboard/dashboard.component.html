@@ -1,0 +1,202 @@
+ <div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+  <div class="c-body"> 
+
+<main class="c-main">
+  <div class="container-fluid ">
+    <div class="mat-elevation-z8s">
+      <div class="body-part">
+        <div class="page-title-box">
+          <div class="row align-items-center">
+            <div class="col-sm-6">
+              <h4 class="page-title">Dashboard</h4>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Main Dashboard</li>
+              </ol>
+            </div>
+            <div class="col-sm-6">
+              <div class="float-right d-none d-md-block">
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle arrow-none waves-effect waves-light" type="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="mdi mdi-settings mr-2"></i> Switch Dashboards
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#" wire:click.prevent="open_analytical_dashboard">
+                      Analytical Dashboard
+                    </a>
+                    <a class="dropdown-item" href="#" wire:click.prevent="                                open_statistical_dashboard
+                                ">
+                      Statistical Dashboard
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card mini-stat bg-pattern">
+              <div class="card-body mini-stat-img">
+                <div class="mini-stat-icon">
+                  <i class="dripicons-broadcast bg-soft-primary text-primary float-right h4"></i>
+                </div>
+                <h6 class="text-uppercase mb-2 mt-0">Filed Cases</h6>
+                <div class="row">
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Cri. <span class="text-primary">186919</span></h5>
+                  </div>
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Civ. <span class="text-primary">66424</span></h5>
+                  </div>
+                </div>
+                <p class="text-muted mb-0"><span class="text-success mr-2">
+                  </span> As of {{myNewDate | date: 'fullDate' }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mini-stat bg-pattern">
+              <div class="card-body mini-stat-img">
+                <div class="mini-stat-icon">
+                  <i class="dripicons-box bg-soft-primary text-danger float-right h4"></i>
+                </div>
+                <h6 class="text-uppercase mb-2 mt-0">Pending Cases</h6>
+                <div class="row">
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Cri. <span class="text-danger">40667</span></h5>
+                  </div>
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Civ. <span class="text-danger">55523<span></span></span>
+                    </h5>
+                  </div>
+                </div>
+                <p class="text-muted mb-0"><span class="text-danger mr-2">
+                  </span> As of {{myNewDate | date: 'fullDate' }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card mini-stat bg-pattern">
+              <div class="card-body mini-stat-img">
+                <div class="mini-stat-icon">
+                  <i class="dripicons-tags bg-soft-primary text-success float-right h4"></i>
+                </div>
+                <h6 class="text-uppercase mb-2 mt-0">Decided Cases</h6>
+                <div class="row">
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Cri. <span class="text-success">46181</span></h5>
+                  </div>
+                  <div class="col-sm-6 p-0">
+                    <h5 class="mb-3 font-16 text-secondary">Civ. <span class="text-success">56646</span></h5>
+                  </div>
+                </div>
+                <p class="text-muted mb-0"><span class="text-danger mr-2">
+                  </span> As of {{myNewDate | date: 'fullDate' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="mt-0 header-title mb-4">Latest Cases</h4>
+                <div class="table-responsive">
+                  <table class="table table-nowrap mb-0">
+                    <tbody>
+                      <tr>
+                        <td>Case No. 7/2013
+                          <p class="m-0 text-black-50 font-15">On 15 Nov 2018</p>
+                        </td>
+                        <td>Ref No. 20130124847069
+                          <p class="m-0 text-black-50 font-15">Criminal Case</p>
+                        </td>
+                        <td>
+                          <span class="badge badge-soft-danger btn-sm">
+                            pending
+                          </span>
+                        </td>
+                        <td>
+                          <div>
+                            <a href="#" class="btn btn-primary btn-sm">View</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Case No. 5/2013
+                          <p class="m-0 text-black-50 font-15">On 30 Dec 2019</p>
+                        </td>
+                        <td>Ref No. 20120511132391
+                          <p class="m-0 text-black-50 font-15">PC. Criminal Appeal</p>
+                        </td>
+                        <td>
+                          <span class="badge badge-soft-success btn-sm">
+                            decided
+                          </span>
+                        </td>
+                        <td>
+                          <div>
+                            <a href="#" class="btn btn-primary btn-sm">View</a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card user-card profile-part">
+        <div class="card-block">
+          <div class="user-images" style="width:160px;height:160px;">
+            <img src="../../../assets/images/profile.png" class="img-radius" style="width:80%;height:80%;"
+              alt="User-Profile-Image">
+          </div>
+          <!-- <h6 class="f-w-600 m-t-25 m-b-10">{{auth.user.profile}}</h6> -->
+          <h4 class="f-w-600 m-t-25 m-b-10">{{userList.profile.salutation}}. {{userList.profile.fullname}}</h4>
+          <p class="text-muted">Email | {{userList.email}}</p>
+          <hr>
+          
+          <!-- <ul class="list-unstyled activity-leval">
+            <li class="active"></li>
+            <li class="active"></li>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+          </ul>
+
+          <hr> -->
+          <div class="row justify-content-center user-social-link">
+            <div class="col-auto"><a href="#!"><i class="fa fa-user"></i></a></div>
+            <div class="col-auto"><a href="#!"><i class="fa fa-cogs text-Settings"></i></a></div>
+            <div class="col-auto"><a href="#!"><i class="fa fa-power-off text-dribbble" (click)="sidebar.logoutUser()"></i></a></div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+  </div>
+</div> 
+
+<!-- <footer class="mt-auto footer fixed-bottom"> © 2022 Case Management System. <span class="d-none d-sm-inline-block">
+        Judiciary of Tanzania</span>. All Rights Reserved.</footer> -->

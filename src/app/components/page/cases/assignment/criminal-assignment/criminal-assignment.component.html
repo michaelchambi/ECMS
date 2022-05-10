@@ -1,0 +1,343 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    <div class="content">
+        <div class="container-fluid">
+    
+            <div wire:id="nQdSlc0z6F3gOwlv9Rvc">
+                <div class="page-title-box">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h4 class="page-title">Criminal Assignments</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="https://cms.judiciary.go.tz/dashboard">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Case Assignments</a></li>
+                                <li class="breadcrumb-item active">Criminal Assignments</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+    
+    
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="email-leftbar card card-secondary card-outline">
+                            <div class="mail-list mt-4">
+                                <a class=" active " wire:click.prefetch="toggle_unassigned_cases" wir=""
+                                    href="javascript:void(0);">
+                                    <i class="mdi mdi-briefcase-account mr-2"></i>Await Assignments
+                                    <span class="ml-1 float-right">(10)</span>
+                                </a>
+    
+    
+    
+                                <a class="" wire:click.prefetch="toggle_await_confirmation" href="javascript:void(0);">
+                                    <i class="mdi mdi-briefcase-check mr-2"></i>Confirm Assignments
+                                    <span class="ml-1 float-right">(37032)</span>
+                                </a>
+    
+                                <a class="" wire:click.prefetch="toggle_extended_assignment" href="javascript:void(0);">
+                                    <i class="mdi mdi-nature-people mr-2"></i>Extended Jurisdiction
+                                    <span class="ml-1 float-right">(4)</span>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="email-rightbar mb-3">
+                            <div class="card card-secondary card-outline">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12">
+                                            <h5 classname="card-title">List of cases awaiting assignment</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-sm-2">
+                                            <select wire:model="perPage" class="form-control">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select wire:model="orderAsc" class="form-control">
+                                                <option value="1">Ascending</option>
+                                                <option value="0">Descending</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                                id="validationCustom01" placeholder="Search..">
+                                        </div>
+                                    </div>
+    
+                                    <div class="table-responsive project-list">
+                                        <table id="datatable"
+                                            class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                            style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid"
+                                            aria-describedby="datatable_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th style="width: 50px;">#</th>
+                                                    <th style="width: 108px;">Reference #</th>
+                                                    <th style="width: 109px;">Case Type</th>
+                                                    <th style="width: 320px;">Case Parties</th>
+                                                    <th style="width: 200px;">Court</th>
+                                                    <th style="width: 65px;" class="text-center">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                                                    <td>1</td>
+                                                    <td>20110831807610</td>
+                                                    <td>Criminal Appeal</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Rajabu Ngwada And Another
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">The Republic</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/261/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td>2</td>
+                                                    <td>20130123327762</td>
+                                                    <td>Criminal Appeal</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Azizi Ahamada And Mwita Maxmilian
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">Francisca Rweyemamu</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/431/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td>3</td>
+                                                    <td>20130905166726</td>
+                                                    <td>PC. Criminal Appeal</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Julius Petro
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">The Republic</p>
+                                                    </td>
+                                                    <td>Dodoma High Court</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/534/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td>4</td>
+                                                    <td>20110517165191</td>
+                                                    <td>Criminal Application</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Issa Hamisi Likamalila
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">The Republic</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/539/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td>5</td>
+                                                    <td>20131230534441</td>
+                                                    <td>Criminal Application</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Jumanne Hassan Bilingi
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">The Republic</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/603/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr role="row" class="odd">
+                                                    <td>6</td>
+                                                    <td>20121030285895</td>
+                                                    <td>Criminal Appeal</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Bahati Mdobofu
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">The Republic</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                    type="button" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu dropdown-menu-right">
+                                                                    <a href="https://cms.judiciary.go.tz/criminal/assignments/show/624/unassigned"
+                                                                        class="dropdown-item"><i
+                                                                            class="mdi mdi-eye-check"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="mdi mdi-trash-can"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7"></div>
+                                <div class="col-5">
+                                    <div class="btn-group float-right">
+                                        <div>
+                                            <nav role="navigation" aria-label="Pagination Navigation"
+                                                class="flex justify-between">
+                                                <span>
+    
+                                                    <span
+                                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+                                                        « Previous
+                                                    </span>
+                                                </span>
+    
+                                                <span>
+    
+                                                    <button wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                                        dusk="nextPage"
+                                                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                                        Next »
+                                                    </button>
+                                                </span>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

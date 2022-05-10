@@ -1,0 +1,451 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body"> 
+<div class="content">
+    <div class="container-fluid">
+        
+<div class="container mx-auto">
+<div wire:id="Bl7FE7FmwPqfaewbjKRD">
+<!--  create modal starts -->
+<div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createWardModal" tabindex="-1" role="dialog" aria-labelledby="createWardModal" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+    <h5 class="modal-title" id="createWardModal">Add Ward</h5>
+    <button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-warning card-outline">
+                <div class="card card-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <i>add a new ward</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip01">Ward</label>
+                                    <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter ward name" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip02">Postcode</label>
+                                    <input type="text" class="form-control" name="postcode" wire:model="postcode" id="validationTooltip02" placeholder="Enter ward postcode" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip03">Region</label>
+                                        <select wire:model="selected_region" name="selected_region" id="selected_region" class="form-control" required="">
+                                            <option value="" selected="">Select region...</option>
+                                                                                                        <option value="16">Arusha Region</option>
+                                                                                                        <option value="23">Manyara Region</option>
+                                                                                                        <option value="28">Kagera Region</option>
+                                                                                                        <option value="36">Dar es Salaam Region</option>
+                                                                                                        <option value="42">Pwani Region</option>
+                                                                                                        <option value="50">Morogoro Region</option>
+                                                                                                        <option value="57">Dodoma Region</option>
+                                                                                                        <option value="65">Singida Region</option>
+                                                                                                        <option value="70">Iringa Region</option>
+                                                                                                        <option value="74">Njombe Region</option>
+                                                                                                        <option value="79">Mbeya Region</option>
+                                                                                                        <option value="85">Songwe Region</option>
+                                                                                                        <option value="90">Kilimanjaro Region</option>
+                                                                                                        <option value="97">Mtwara Region</option>
+                                                                                                        <option value="103">Lindi Region</option>
+                                                                                                        <option value="109">Mwanza Region</option>
+                                                                                                        <option value="117">Mara Region</option>
+                                                                                                        <option value="124">Geita Region</option>
+                                                                                                        <option value="130">Shinyanga Region</option>
+                                                                                                        <option value="134">Simiyu Region</option>
+                                                                                                        <option value="140">Ruvuma Region</option>
+                                                                                                        <option value="146">Rukwa Region</option>
+                                                                                                        <option value="150">Katavi Region</option>
+                                                                                                        <option value="154">Tabora Region</option>
+                                                                                                        <option value="162">Kigoma Region</option>
+                                                                                                        <option value="169">Tanga Region</option>
+                                                                                                </select>
+                                        <div class="mt-1">
+                                                                                                </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                                                        </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                                                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>
+<div class="modal-footer">
+    <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+        <i class="mdi mdi-close"></i> Close
+    </button>
+    <button wire:click.prevent="store()" type="submit" class="btn btn-primary">
+        <i class="mdi mdi-content-save"></i> Save ward
+    </button>
+</div>
+</div>
+</div>
+</div>
+<!--  create modal ends -->    <!--  update modal starts -->
+<div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="updateWardModal" tabindex="-1" role="dialog" aria-labelledby="updateWardModal" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+    <h5 class="modal-title" id="updateWardModal">Edit ward</h5>
+    <button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-warning card-outline">
+                <div class="card card-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <i>edit the specified ward</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip01">Ward</label>
+                                    <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter ward name" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip02">Postcode</label>
+                                    <input type="text" class="form-control" name="postcode" wire:model="postcode" id="validationTooltip02" placeholder="Enter ward postcode" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip03">Region</label>
+                                        <select wire:model="selected_region" name="selected_region" id="selected_region" class="form-control" required="">
+                                            <option value="" selected="">Select region...</option>
+                                                                                                        <option value="16">Arusha Region</option>
+                                                                                                        <option value="23">Manyara Region</option>
+                                                                                                        <option value="28">Kagera Region</option>
+                                                                                                        <option value="36">Dar es Salaam Region</option>
+                                                                                                        <option value="42">Pwani Region</option>
+                                                                                                        <option value="50">Morogoro Region</option>
+                                                                                                        <option value="57">Dodoma Region</option>
+                                                                                                        <option value="65">Singida Region</option>
+                                                                                                        <option value="70">Iringa Region</option>
+                                                                                                        <option value="74">Njombe Region</option>
+                                                                                                        <option value="79">Mbeya Region</option>
+                                                                                                        <option value="85">Songwe Region</option>
+                                                                                                        <option value="90">Kilimanjaro Region</option>
+                                                                                                        <option value="97">Mtwara Region</option>
+                                                                                                        <option value="103">Lindi Region</option>
+                                                                                                        <option value="109">Mwanza Region</option>
+                                                                                                        <option value="117">Mara Region</option>
+                                                                                                        <option value="124">Geita Region</option>
+                                                                                                        <option value="130">Shinyanga Region</option>
+                                                                                                        <option value="134">Simiyu Region</option>
+                                                                                                        <option value="140">Ruvuma Region</option>
+                                                                                                        <option value="146">Rukwa Region</option>
+                                                                                                        <option value="150">Katavi Region</option>
+                                                                                                        <option value="154">Tabora Region</option>
+                                                                                                        <option value="162">Kigoma Region</option>
+                                                                                                        <option value="169">Tanga Region</option>
+                                                                                                </select>
+                                        <div class="mt-1">
+                                                                                                </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                                                        </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-sm-6">
+                                                                        </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>
+<div class="modal-footer">
+    <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+        <i class="mdi mdi-close"></i> Close
+    </button>
+    <button wire:click.prevent="update()" type="submit" class="btn btn-primary">
+        <i class="mdi mdi-content-save"></i> Save changes
+    </button>
+</div>
+</div>
+</div>
+</div>
+<!--  update modal ends -->    <div class="page-title-box">
+<div class="row align-items-center">
+<div class="col-sm-6">
+    <h4 class="page-title">Wards</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0);"><i class="mdi mdi-home-outline"></i></a>
+        </li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Locations</a></li>
+        <li class="breadcrumb-item active">Wards</li>
+    </ol>
+</div>
+</div> <!-- end row -->
+</div>
+<!-- end page-title -->
+
+
+<div class="row">
+<div class="col-12">
+<div class="card card-secondary card-outline">
+    <div class="card card-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h5 classname="card-title">List of wards</h5>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-secondary btn-sm 
+                        waves-effect waves-light float-right" data-toggle="modal" data-target=".bs-example-modal-lg">
+                    <i class="mdi mdi-plus"></i> New Ward
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row align-items-center mb-4">
+            <div class="col-sm-2">
+                <select wire:model="perPage" class="form-control">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <select wire:model="orderAsc" class="form-control">
+                    <option value="1">Ascending</option>
+                    <option value="0">Descending</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <input wire:model.debounce.300ms="search" type="text" class="form-control" id="validationCustom01" placeholder="Search by ward name...">
+            </div>
+        </div>
+        <!-- end row -->
+
+        <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ward</th>
+                    <th>Postcode</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">1</td>
+                    <td class="col-sm-3">Kivukoni</td>
+                    <td class="col-sm-3">11101</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(1)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/1/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">2</td>
+                    <td class="col-sm-3">Upanga Mashariki</td>
+                    <td class="col-sm-3">11102</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(2)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/2/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">3</td>
+                    <td class="col-sm-3">Upanga Magharibi</td>
+                    <td class="col-sm-3">11103</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(3)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/3/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">4</td>
+                    <td class="col-sm-3">Kisutu</td>
+                    <td class="col-sm-3">11104</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(4)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/4/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">5</td>
+                    <td class="col-sm-3">Mchafukoge</td>
+                    <td class="col-sm-3">11105</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(5)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/5/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">6</td>
+                    <td class="col-sm-3">Kariakoo</td>
+                    <td class="col-sm-3">11106</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(6)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/6/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">7</td>
+                    <td class="col-sm-3">Gerezani</td>
+                    <td class="col-sm-3">11107</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(7)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/7/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">8</td>
+                    <td class="col-sm-3">Jangwani</td>
+                    <td class="col-sm-3">11108</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(8)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/8/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">9</td>
+                    <td class="col-sm-3">Mchikichini</td>
+                    <td class="col-sm-3">11109</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(9)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/9/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">10</td>
+                    <td class="col-sm-3">Ilala</td>
+                    <td class="col-sm-3">12101</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateWardModal" wire:click.prevent="edit(10)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/wards/10/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                        </tbody>
+        </table>
+        <div>
+<nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
+<span>
+    
+                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+            « Previous
+        </span>
+                </span>
+
+<span>
+    
+                                                <button wire:click="nextPage('page')" wire:loading.attr="disabled" dusk="nextPage" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                    Next »
+            </button>
+                                    </span>
+</nav>
+</div>
+    </div>
+</div>
+</div> 
+</div> 
+</div>
+</div>
+    </div>
+</div>
+  </div>
+</div>
+

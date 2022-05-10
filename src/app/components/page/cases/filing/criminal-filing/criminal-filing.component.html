@@ -1,0 +1,486 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    
+<div class="content">
+    <div class="container-fluid">
+        <div>
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title">Criminal eFiling</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="https://cms.judiciary.go.tz/dashboard">Dashboard</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">eCase Filing</a></li>
+                            <li class="breadcrumb-item active">Criminal eFiling</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div >
+                <div class="justify-content-center" style="width:100%;">
+
+                    <div class="email-leftbar card card-secondary card-outline" style="width:20%;float:left;height:320px; padding:20px;">
+                        <a href="https://cms.judiciary.go.tz/civil/efiling/create"
+                            class="btn btn-danger btn-block waves-effect waves-light">New Admission</a>
+
+                        <div class="mail-list mt-4">
+                            <a class=" active " wire:click.prefetch="open_admission" wir="" >
+                                <i class="fa fa-envelope-open mr-2"></i>Submitted
+                                <span class="ml-1 float-right">(40164)</span>
+                            </a>
+                            <hr>
+                            <a class="" wire:click.prefetch="open_efiling_case" >
+                                <i class="fa fa-envelope mr-2"></i>Registered
+                                <span class="ml-1 float-right">(237971)</span>
+                            </a>
+                            <hr>
+                            <a class="" wire:click.prefetch="open_rejected_admission" >
+                                <i class="fa fa-reply mr-2"></i>Rejected
+                                <span class="ml-1 float-right">(365)</span>
+                            </a>
+                            <hr>
+                            <a class="" wire:click.prefetch="open_returned_admission" >
+                                <i class="fa fa-reply-all mr-2"></i>Returned
+                                <span class="ml-1 float-right">(1785)</span>
+                            </a>
+                            <hr>
+                            <a class="" wire:click.prefetch="open_draft_admission" >
+                                <i class="mdi mdi-file mr-2"></i>Draft
+                                <span class="ml-1 float-right">(0)</span>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    
+
+                    <div class="email-rightbar mb-3" style="width:80%; float:right">
+                        <div class="card card-secondary card-outline">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-sm-12">
+                                        <h5 classname="card-title">List of submitted criminal admissions</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row align-items-center mb-4">
+                                    <div class="col-sm-2">
+                                        <select wire:model="perPage" class="form-control">
+                                            <option>10</option>
+                                            <option>25</option>
+                                            <option>50</option>
+                                            <option>100</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <select wire:model="orderAsc" class="form-control">
+                                            <option value="1">Ascending</option>
+                                            <option value="0">Descending</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                            id="validationCustom01" placeholder="Search..">
+                                    </div>
+                                </div>
+
+                                <div class="table-responsive project-list">
+                                    <table id="datatable"
+                                        class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                        style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid"
+                                        aria-describedby="datatable_info">
+                                        <thead>
+                                            <tr role="row">
+                                                <th style="width: 50px;">#</th>
+                                                <th style="width: 108px;">Reference #</th>
+                                                <th style="width: 109px;">Case Type</th>
+                                                <th style="width: 320px;">Case Parties</th>
+                                                <th style="width: 200px;">Court</th>
+                                                <th style="width: 65px;" class="text-center">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" class="odd">
+                                                <td>1</td>
+                                                <td>20220331677473</td>
+                                                <td>Miscellaneous Criminal Application</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Thadei Stambuli Pangahela</p>
+                                                </td>
+                                                <td>Dar es salaam Court of Appeal</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000021/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>2</td>
+                                                <td>20220331657974</td>
+                                                <td>Criminal Appeal</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Thadei Stambuli Pangahela</p>
+                                                </td>
+                                                <td>Dar es salaam Court of Appeal</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000020/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>3</td>
+                                                <td>20220331642622</td>
+                                                <td>Criminal Session</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                </td>
+                                                <td>Shinyanga High Court</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000019/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>4</td>
+                                                <td>20220330524572</td>
+                                                <td>Miscellaneous Criminal Application</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Rashid Hassan &amp;2 Others</p>
+                                                </td>
+                                                <td>Dar es salaam High Court Dar es salaam zone</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000018/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>5</td>
+                                                <td>20220330920417</td>
+                                                <td>Economic Case</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                </td>
+                                                <td>Bukoba Resident Magistrate</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000017/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>6</td>
+                                                <td>20220330802128</td>
+                                                <td>Economic Case</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                </td>
+                                                <td>Bukoba Resident Magistrate</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000016/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>7</td>
+                                                <td>20220330675981</td>
+                                                <td>Economic Case</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Stella Matulile</p>
+                                                </td>
+                                                <td>Bukoba Resident Magistrate</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000015/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>8</td>
+                                                <td>20220323713168</td>
+                                                <td>Criminal Appeal</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">The Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Lusajo Saimon</p>
+                                                </td>
+                                                <td>Dar es salaam High Court Dar es salaam zone</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/10000010/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>9</td>
+                                                <td>20211210225786</td>
+                                                <td>Criminal Case</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Dickson Chavala</p>
+                                                </td>
+                                                <td>Dodoma High Court</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/92121/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr role="row" class="odd">
+                                                <td>10</td>
+                                                <td>20211210585129</td>
+                                                <td>Criminal Case</td>
+                                                <td>
+                                                    <h6 class="mt-0 mb-1">Republic
+                                                        <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                    </h6>
+                                                    <p class="m-0 font-14">Ramadhani Abrahmani Nongwa</p>
+                                                </td>
+                                                <td>Rufiji District Court</td>
+                                                <td class="text-center">
+                                                    <div class="d-none d-md-block">
+                                                        <div class="dropdown">
+                                                            <a class="btn btn-sm btn-info fa fa-bars text-white dropdown-toggle  waves-effect waves-light"
+                                                                type="button" data-toggle="dropdown"
+                                                                aria-haspopup="true" aria-expanded="false">
+                                                                <i class="dripicons-menu"></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a href="https://cms.judiciary.go.tz/criminal/efiling/show/92117/submitted"
+                                                                    class="dropdown-item"><i
+                                                                        class="mdi mdi-eye-check"></i> View Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-pencil-off"></i> Edit Case</a>
+                                                                <a href="#" class="dropdown-item"><i
+                                                                        class="mdi mdi-trash-can"></i> Request
+                                                                    Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7"></div>
+                            <div class="col-5">
+                                <div class="btn-group float-right">
+                                    <div>
+                                        <nav>
+                                            <ul class="pagination">
+
+                                                <li class="page-item disabled" aria-disabled="true">
+                                                    <span class="page-link">« Previous</span>
+                                                </li>
+
+
+                                                <li class="page-item">
+                                                    <button type="button" dusk="nextPage" class="page-link"
+                                                        wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                                        rel="next">Next »</button>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Livewire Component wire-end:YUV0FQ7Ylq2vPdGmKRon -->
+
+    </div>
+</div>
+  </div>
+</div>

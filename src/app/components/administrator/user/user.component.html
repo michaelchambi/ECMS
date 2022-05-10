@@ -1,0 +1,1486 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    
+<div class="content">
+    <div class="container-fluid">
+
+        <div wire:id="hsqwZOmuFrSPCmAoEwBQ">
+            <!--  create modal starts -->
+            <div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createJudicialModal" tabindex="-1"
+                role="dialog" aria-labelledby="createJudicialModal" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createJudicialModal">Create Internal User</h5>
+                            <button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card card-warning card-outline">
+                                        <div class="card card-header">
+                                            <div class="row align-items-center">
+                                                <div class="col-sm-12">
+                                                    <i>add internal users and court officers: e.g. judge, registrar or
+                                                        magistrate</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip01">Firstname</label>
+                                                            <input type="text" class="form-control " name="firstname"
+                                                                wire:model="firstname" id="validationTooltip01"
+                                                                placeholder="Enter firstname" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip02">Lastname</label>
+                                                            <input type="text" class="form-control " name="lastname"
+                                                                wire:model="lastname" id="validationTooltip02"
+                                                                placeholder="Enter lastname" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip03">Email</label>
+                                                            <input type="email" class="form-control " name="email"
+                                                                wire:model="email" id="validationTooltip03"
+                                                                placeholder="Enter email" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip04">Mobile</label>
+                                                            <input type="text" class="form-control " name="mobile"
+                                                                wire:model="mobile" id="validationTooltip04"
+                                                                placeholder="Enter mobile number" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip05">Password</label>
+                                                            <input type="password" class="form-control " name="password"
+                                                                wire:model="password" id="validationTooltip05"
+                                                                placeholder="Enter password" required="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group position-relative">
+                                                            <label for="validationTooltip06">Confrim Password</label>
+                                                            <input type="password" class="form-control "
+                                                                name="confirm_password" wire:model="confirm_password"
+                                                                id="validationTooltip06"
+                                                                placeholder="Enter confirm password" required="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label for="txtAddress1Billing">Is this user a Judge, Registrar
+                                                            or Magistrate?</label>
+                                                        <div class="form-group row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-check pt-2">
+                                                                    <input class="form-check-input"
+                                                                        wire:model="internal_user" type="radio"
+                                                                        name="internal_user" id="other-user"
+                                                                        value="other-user">
+                                                                    <label class="form-check-label" for="other-user">
+                                                                        No
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-check mt-2">
+                                                                    <input class="form-check-input"
+                                                                        wire:model="internal_user" type="radio"
+                                                                        name="internal_user" id="court-officer"
+                                                                        value="court-officer">
+                                                                    <label class="form-check-label" for="court-officer">
+                                                                        Yes
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div> <!-- end row -->
+                        </div>
+                        <div class="modal-footer">
+                            <button wire:click.prevent="cancel()" type="submit"
+                                class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+                                <i class="mdi mdi-close"></i> Close
+                            </button>
+                            <button wire:click.prevent="add_court_user()" type="submit" class="btn btn-primary">
+                                <i class="mdi mdi-content-save"></i> Save user
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  create modal ends -->
+            <div class="page-title-box">
+                <div class="row align-items-center">
+                    <div class="col-sm-6">
+                        <h4 class="page-title">System Users</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0);"><i
+                                        class="mdi mdi-home-outline"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">User Access</a></li>
+                            <li class="breadcrumb-item active">System Users</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-secondary card-outline">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col-sm-6">
+                                    <h5 classname="card-title">List of users</h5>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="button" class="btn btn-secondary btn-sm 
+                            waves-effect waves-light float-right mr-2" data-toggle="modal"
+                                        data-target="#createJudicialModal">
+                                        <i class="mdi mdi-plus"></i> New User
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center mb-4">
+                                <div class="col-sm-1">
+                                    <select wire:model="perPage" class="form-control">
+                                        <option>10</option>
+                                        <option>25</option>
+                                        <option>50</option>
+                                        <option>100</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select wire:model="orderAsc" class="form-control">
+                                        <option value="1">Ascending</option>
+                                        <option value="0">Descending</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-5">
+                                    <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                        id="validationCustom01" placeholder="Search..">
+                                </div>
+                            </div>
+
+                            <table id="datatable-buttons"
+                                class="table table-striped dt-responsive nowrap table-vertical"
+                                style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Court</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr role="role" class="even">
+                                        <td class="col-sm-1">1</td>
+                                        <td class="col-sm-2">Mkwawa Kassim</td>
+                                        <td><span class="text text-primary">
+                                                mkwawak@yahoo.com</span>
+                                        </td>
+                                        <td class="col-sm-5">
+                                            External User. Judiciary of Tanzania
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <a href="https://cms.judiciary.go.tz/system/users/100003/verify">
+                                                <span class="badge badge-soft-success btn-sm">
+                                                    verified
+                                                </span>
+                                            </a>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <a title="User Role" href="#" data-toggle="modal"
+                                                data-target="#updateUserRoleModal100003"
+                                                wire:click.prevent="edit_user_role(100003)">
+                                                <i class="fa fa-id-badge  text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="View User" href="#" data-toggle="modal"
+                                                data-target="#showUserModal100003"
+                                                wire:click.prevent="show_user(100003)">
+                                                <i class="mdi mdi-eye-check fa fa-eye text-info fa-lg"></i>
+                                            </a>
+                                            <a title="User Scope"
+                                                href="https://cms.judiciary.go.tz/system/users/100002/scopes">
+                                                <i class="fa fa-user-plus text-dark fa-lg"></i>
+                                            </a>
+                                            <!--  create modal starts -->
+                                            <div wire:ignore.self="" class="modal fade bs-example-modal-lg"
+                                                id="updateUserRoleModal100003" tabindex="-1" role="dialog"
+                                                aria-labelledby="updateUserRoleModal" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="updateUserRoleModal">Update User
+                                                                Roles</h5>
+                                                            <button wire:click.prevent="cancel()" type="button"
+                                                                class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <form method="POST"
+                                                            action="https://cms.judiciary.go.tz/users/edit/100003"
+                                                            accept-charset="UTF-8"><input name="_method" type="hidden"
+                                                                value="PUT"><input name="_token" type="hidden"
+                                                                value="fQe8O6dQuH6pFYAdc1CxbZoBDo6OlFYVt9uXOgFC">
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="card card-warning card-outline">
+                                                                            <div class="card card-header">
+                                                                                <div class="row align-items-center">
+                                                                                    <h5 classname="card-title">Mkwawa
+                                                                                        Kassim</h5>
+                                                                                    <h5 class="font-16"><span
+                                                                                            class="badge badge-soft-info ml-2">advocate</span>
+                                                                                    </h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-12">
+                                                                                        <table id="datatable-buttons"
+                                                                                            class="table table-striped dt-responsive nowrap table-vertical"
+                                                                                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                                                            <thead></thead>
+                                                                                            <tbody>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="2">
+                                                                                                    </td>
+                                                                                                    <td>admin</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="3">
+                                                                                                    </td>
+                                                                                                    <td>judge</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="4">
+                                                                                                    </td>
+                                                                                                    <td>registrar</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="5">
+                                                                                                    </td>
+                                                                                                    <td>magistrate</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="6">
+                                                                                                    </td>
+                                                                                                    <td>admission-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="7">
+                                                                                                    </td>
+                                                                                                    <td>assignment-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="8"
+                                                                                                            checked="">
+                                                                                                    </td>
+                                                                                                    <td>advocate</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="9">
+                                                                                                    </td>
+                                                                                                    <td>attorney</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="10">
+                                                                                                    </td>
+                                                                                                    <td>litigant</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="11">
+                                                                                                    </td>
+                                                                                                    <td>billing-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="12">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="13">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk-civil
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="14">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk-criminal
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="15">
+                                                                                                    </td>
+                                                                                                    <td>external</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="16">
+                                                                                                    </td>
+                                                                                                    <td>judge-in-charge
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="17">
+                                                                                                    </td>
+                                                                                                    <td>justice-of-appeal
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="18">
+                                                                                                    </td>
+                                                                                                    <td>magistrate-in-charge
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="19">
+                                                                                                    </td>
+                                                                                                    <td>court-administrator
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="20">
+                                                                                                    </td>
+                                                                                                    <td>human-resource-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="21">
+                                                                                                    </td>
+                                                                                                    <td>administrative-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="22">
+                                                                                                    </td>
+                                                                                                    <td>judiciary-management
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="23">
+                                                                                                    </td>
+                                                                                                    <td>jaji-kiongozi
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="24">
+                                                                                                    </td>
+                                                                                                    <td>chief-registrar
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="25">
+                                                                                                    </td>
+                                                                                                    <td>chief-justice
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="26">
+                                                                                                    </td>
+                                                                                                    <td>justice-secretary
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="27">
+                                                                                                    </td>
+                                                                                                    <td>Registrar Court
+                                                                                                        of Appeal</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="28">
+                                                                                                    </td>
+                                                                                                    <td>chief-court-administrator
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="29">
+                                                                                                    </td>
+                                                                                                    <td>HJDU</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="30">
+                                                                                                    </td>
+                                                                                                    <td>dcm-master-data
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="31">
+                                                                                                    </td>
+                                                                                                    <td>judiciary</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="32">
+                                                                                                    </td>
+                                                                                                    <td>zonal</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="33">
+                                                                                                    </td>
+                                                                                                    <td>special</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="34">
+                                                                                                    </td>
+                                                                                                    <td>DJSIE</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="35">
+                                                                                                    </td>
+                                                                                                    <td>DCM</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="36">
+                                                                                                    </td>
+                                                                                                    <td>engineer</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="37">
+                                                                                                    </td>
+                                                                                                    <td>Legal Assistant
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="38">
+                                                                                                    </td>
+                                                                                                    <td>pc court</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="39">
+                                                                                                    </td>
+                                                                                                    <td>primary court
+                                                                                                        report</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="40">
+                                                                                                    </td>
+                                                                                                    <td>Rita Judiciary
+                                                                                                        Stakeholder</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="41">
+                                                                                                    </td>
+                                                                                                    <td>antoney_general
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="42">
+                                                                                                    </td>
+                                                                                                    <td>Dpp Judiciary
+                                                                                                        Stakeholder</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="43">
+                                                                                                    </td>
+                                                                                                    <td>Accountant</td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button wire:click.prevent="cancel()" type="submit"
+                                                                    class="btn btn-warning text-black-50 float-right"
+                                                                    data-dismiss="modal">
+                                                                    <i class="mdi mdi-close"></i> Close
+                                                                </button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary waves-effect waves-light float-right">
+                                                                    <i class="mdi mdi-content-save"></i> Update Role
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div wire:ignore.self="" class="modal fade bs-example-modal-lg"
+                                                id="showUserModal100003" tabindex="-1" role="dialog"
+                                                aria-labelledby="showUserModal" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="showUserModal">User Details</h5>
+                                                            <button wire:click.prevent="cancel()" type="button"
+                                                                class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                    <div
+                                                                        class="card card-warning card-outline text-center">
+                                                                        <div class="card-body">
+                                                                            <div class="row align-items-center">
+                                                                                <img class="rounded-circle thumb-lg mx-auto"
+                                                                                    alt="User"
+                                                                                    src="https://cms.judiciary.go.tz/assets/images/users/user.png"
+                                                                                    data-holder-rendered="true">
+                                                                            </div>
+                                                                            <div class="mt-3">
+                                                                                <a class="h5" href="#">
+                                                                                    Mkwawa Kassim
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-8">
+                                                                    <div class="card card-warning card-outline">
+                                                                        <div class="card-header">
+                                                                            <div class="row align-items-center">
+                                                                                <div class="col-sm-8">
+                                                                                    <h6 classname="card-title">Judiciary
+                                                                                        of Tanzania</h6>
+                                                                                </div>
+                                                                                <div class="col-sm-4">
+                                                                                    <a data-toggle="modal"
+                                                                                        data-target="#"
+                                                                                        class="btn btn-danger btn-sm waves-effect waves-light float-right"
+                                                                                        href="#">
+                                                                                        <i class="mdi mdi-settings"></i>
+                                                                                        User Settings
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="row align-items-center"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button wire:click.prevent="cancel()" type="submit"
+                                                                class="btn btn-warning text-black-50 float-right"
+                                                                data-dismiss="modal">
+                                                                <i class="mdi mdi-close"></i> Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  create modal ends -->
+                                        </td>
+                                    </tr>
+                                    <tr role="role" class="even">
+                                        <td class="col-sm-1">2</td>
+                                        <td class="col-sm-2">Amania Aboud</td>
+                                        <td><span class="text text-primary">
+                                                stella.matulile@judiciary.go.tz</span>
+                                        </td>
+                                        <td class="col-sm-5">
+                                            Dar es salaam Court of Appeal
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <a href="https://cms.judiciary.go.tz/system/users/100002/verify">
+                                                <span class="badge badge-soft-success btn-sm">
+                                                    verified
+                                                </span>
+                                            </a>
+                                        </td>
+                                        <td class="col-sm-2">
+                                            <a title="User Role" href="#" data-toggle="modal"
+                                                data-target="#updateUserRoleModal100002"
+                                                wire:click.prevent="edit_user_role(100002)">
+                                                <i class="fa fa-id-badge fa fa-user text-primary fa-lg"></i>
+                                            </a>
+                                            <a title="View User" href="#" data-toggle="modal"
+                                                data-target="#showUserModal100002"
+                                                wire:click.prevent="show_user(100002)">
+                                                <i class="mdi mdi-eye-check fa fa-eye text-info fa-lg"></i>
+                                            </a>
+                                            <a title="User Scope"
+                                                href="https://cms.judiciary.go.tz/system/users/100002/scopes">
+                                                <i class="fa fa-user-plus text-dark fa-lg"></i>
+                                            </a>
+                                            <!--  create modal starts -->
+                                            <div wire:ignore.self="" class="modal fade bs-example-modal-lg"
+                                                id="updateUserRoleModal100002" tabindex="-1" role="dialog"
+                                                aria-labelledby="updateUserRoleModal" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="updateUserRoleModal">Update User
+                                                                Roles</h5>
+                                                            <button wire:click.prevent="cancel()" type="button"
+                                                                class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <form method="POST"
+                                                            action="https://cms.judiciary.go.tz/users/edit/100002"
+                                                            accept-charset="UTF-8"><input name="_method" type="hidden"
+                                                                value="PUT"><input name="_token" type="hidden"
+                                                                value="fQe8O6dQuH6pFYAdc1CxbZoBDo6OlFYVt9uXOgFC">
+                                                            <div class="modal-body">
+                                                                <div class="row">
+                                                                    <div class="col-12">
+                                                                        <div class="card card-warning card-outline">
+                                                                            <div class="card card-header">
+                                                                                <div class="row align-items-center">
+                                                                                    <h5 classname="card-title">Amania
+                                                                                        Aboud</h5>
+                                                                                    <h5 class="font-16"><span
+                                                                                            class="badge badge-soft-info ml-2">judge</span>
+                                                                                    </h5>
+                                                                                    <h5 class="font-16"><span
+                                                                                            class="badge badge-soft-info ml-2">admission-officer</span>
+                                                                                    </h5>
+                                                                                    <h5 class="font-16"><span
+                                                                                            class="badge badge-soft-info ml-2">assignment-officer</span>
+                                                                                    </h5>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-body">
+                                                                                <div class="row">
+                                                                                    <div class="col-sm-12">
+                                                                                        <table id="datatable-buttons"
+                                                                                            class="table table-striped dt-responsive nowrap table-vertical"
+                                                                                            style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                                                            <thead></thead>
+                                                                                            <tbody>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="2">
+                                                                                                    </td>
+                                                                                                    <td>admin</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="3"
+                                                                                                            checked="">
+                                                                                                    </td>
+                                                                                                    <td>judge</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="4">
+                                                                                                    </td>
+                                                                                                    <td>registrar</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="5">
+                                                                                                    </td>
+                                                                                                    <td>magistrate</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="6"
+                                                                                                            checked="">
+                                                                                                    </td>
+                                                                                                    <td>admission-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="7"
+                                                                                                            checked="">
+                                                                                                    </td>
+                                                                                                    <td>assignment-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="8">
+                                                                                                    </td>
+                                                                                                    <td>advocate</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="9">
+                                                                                                    </td>
+                                                                                                    <td>attorney</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="10">
+                                                                                                    </td>
+                                                                                                    <td>litigant</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="11">
+                                                                                                    </td>
+                                                                                                    <td>billing-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="12">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="13">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk-civil
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="14">
+                                                                                                    </td>
+                                                                                                    <td>court-clerk-criminal
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="15">
+                                                                                                    </td>
+                                                                                                    <td>external</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="16">
+                                                                                                    </td>
+                                                                                                    <td>judge-in-charge
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="17">
+                                                                                                    </td>
+                                                                                                    <td>justice-of-appeal
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="18">
+                                                                                                    </td>
+                                                                                                    <td>magistrate-in-charge
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="19">
+                                                                                                    </td>
+                                                                                                    <td>court-administrator
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="20">
+                                                                                                    </td>
+                                                                                                    <td>human-resource-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="21">
+                                                                                                    </td>
+                                                                                                    <td>administrative-officer
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="22">
+                                                                                                    </td>
+                                                                                                    <td>judiciary-management
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="23">
+                                                                                                    </td>
+                                                                                                    <td>jaji-kiongozi
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="24">
+                                                                                                    </td>
+                                                                                                    <td>chief-registrar
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="25">
+                                                                                                    </td>
+                                                                                                    <td>chief-justice
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="26">
+                                                                                                    </td>
+                                                                                                    <td>justice-secretary
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="27">
+                                                                                                    </td>
+                                                                                                    <td>Registrar Court
+                                                                                                        of Appeal</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="28">
+                                                                                                    </td>
+                                                                                                    <td>chief-court-administrator
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="29">
+                                                                                                    </td>
+                                                                                                    <td>HJDU</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="30">
+                                                                                                    </td>
+                                                                                                    <td>dcm-master-data
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="31">
+                                                                                                    </td>
+                                                                                                    <td>judiciary</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="32">
+                                                                                                    </td>
+                                                                                                    <td>zonal</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="33">
+                                                                                                    </td>
+                                                                                                    <td>special</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="34">
+                                                                                                    </td>
+                                                                                                    <td>DJSIE</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="35">
+                                                                                                    </td>
+                                                                                                    <td>DCM</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="36">
+                                                                                                    </td>
+                                                                                                    <td>engineer</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="37">
+                                                                                                    </td>
+                                                                                                    <td>Legal Assistant
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="38">
+                                                                                                    </td>
+                                                                                                    <td>pc court</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="39">
+                                                                                                    </td>
+                                                                                                    <td>primary court
+                                                                                                        report</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="40">
+                                                                                                    </td>
+                                                                                                    <td>Rita Judiciary
+                                                                                                        Stakeholder</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="41">
+                                                                                                    </td>
+                                                                                                    <td>antoney_general
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="42">
+                                                                                                    </td>
+                                                                                                    <td>Dpp Judiciary
+                                                                                                        Stakeholder</td>
+                                                                                                </tr>
+                                                                                                <tr role="role"
+                                                                                                    class="even">
+                                                                                                    <td>
+                                                                                                        <input
+                                                                                                            type="checkbox"
+                                                                                                            name="roles[]"
+                                                                                                            value="43">
+                                                                                                    </td>
+                                                                                                    <td>Accountant</td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div> <!-- end col -->
+                                                                </div> <!-- end row -->
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button wire:click.prevent="cancel()" type="submit"
+                                                                    class="btn btn-warning text-black-50 float-right"
+                                                                    data-dismiss="modal">
+                                                                    <i class="mdi mdi-close"></i> Close
+                                                                </button>
+                                                                <button type="submit"
+                                                                    class="btn btn-primary waves-effect waves-light float-right">
+                                                                    <i class="mdi mdi-content-save"></i> Update Role
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--  create modal ends -->
+                                            <!--  create modal starts -->
+                                            <div wire:ignore.self="" class="modal fade bs-example-modal-lg"
+                                                id="showUserModal100002" tabindex="-1" role="dialog"
+                                                aria-labelledby="showUserModal" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="showUserModal">User Details</h5>
+                                                            <button wire:click.prevent="cancel()" type="button"
+                                                                class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <div class="col-lg-4">
+                                                                    <div
+                                                                        class="card card-warning card-outline text-center">
+                                                                        <div class="card-body">
+                                                                            <div class="row align-items-center">
+                                                                                <img class="rounded-circle thumb-lg mx-auto"
+                                                                                    alt="User"
+                                                                                    src="https://cms.judiciary.go.tz/assets/images/users/user.png"
+                                                                                    data-holder-rendered="true">
+                                                                            </div>
+                                                                            <div class="mt-3">
+                                                                                <a class="h5" href="#">
+                                                                                    Amania Aboud
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-8">
+                                                                    <div class="card card-warning card-outline">
+                                                                        <div class="card-header">
+                                                                            <div class="row align-items-center">
+                                                                                <div class="col-sm-8">
+                                                                                    <h6 classname="card-title">Dar es
+                                                                                        salaam Court of Appeal</h6>
+                                                                                </div>
+                                                                                <div class="col-sm-4">
+                                                                                    <a data-toggle="modal"
+                                                                                        data-target="#"
+                                                                                        class="btn btn-danger btn-sm waves-effect waves-light float-right"
+                                                                                        href="#">
+                                                                                        <i class="mdi mdi-settings"></i>
+                                                                                        User Settings
+                                                                                    </a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="row align-items-center"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button wire:click.prevent="cancel()" type="submit"
+                                                                class="btn btn-warning text-black-50 float-right"
+                                                                data-dismiss="modal">
+                                                                <i class="mdi mdi-close"></i> Close
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <div>
+                                <nav>
+                                    <ul class="pagination">
+
+                                        <li class="page-item disabled" aria-disabled="true">
+                                            <span class="page-link">« Previous</span>
+                                        </li>
+
+
+                                        <li class="page-item">
+                                            <button type="button" dusk="nextPage" class="page-link"
+                                                wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                                rel="next">Next »</button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+</div>
+
+

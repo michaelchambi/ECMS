@@ -1,0 +1,236 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    <div class="content">
+        <div class="container-fluid">
+            <div>
+                <div class="page-title-box">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h4 class="page-title">Civil eFiling</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="https://cms.judiciary.go.tz/dashboard">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item"><a>eCase Filing</a></li>
+                                <li class="breadcrumb-item active">Civil eFiling</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+    
+    
+    
+                <div>
+                    <div class="justify-content-center" style="width:100%;">
+                        <div class="email-leftbar card card-secondary card-outline"
+                            style="width:20%;float:left;height:320px; padding:20px;">
+                            <a href="https://cms.judiciary.go.tz/civil/efiling/create"
+                                class="btn btn-danger btn-block waves-effect waves-light"><i class="fa fa-plus"></i> New
+                                Admission</a>
+    
+                            <div class="mail-list mt-4">
+                                <a class=" active " wire:click.prefetch="open_admission" wir="">
+                                    <i class="fa fa-envelope-open mr-2"></i>Submitted
+                                    <span class="ml-1 float-right">(51500)</span>
+                                </a>
+                                <hr>
+                                <a class="" wire:click.prefetch="open_efiling_case">
+                                    <i class="fa fa-envelope mr-2"></i>Registered
+                                    <span class="ml-1 float-right">(130234)</span>
+                                </a>
+                                <hr>
+                                <a class="" wire:click.prefetch="open_rejected_admission">
+                                    <i class="fa fa-reply mr-2"></i>Rejected
+                                    <span class="ml-1 float-right">(2588)</span>
+                                </a>
+                                <hr>
+                                <a class="" wire:click.prefetch="open_returned_admission">
+                                    <i class="fa fa-reply-all mr-2"></i>Returned
+                                    <span class="ml-1 float-right">(3824)</span>
+                                </a>
+                                <hr>
+                                <a class="" wire:click.prefetch="open_draft_admission">
+                                    <i class="fa fa-file mr-2"></i>Draft
+                                    <span class="ml-1 float-right">(5)</span>
+                                </a>
+                            </div>
+                        </div>
+    
+                        <div class="email-rightbar mb-3" style="width:80%; float:right">
+                            <div class="card card-secondary card-outline">
+                                <div class="card-header">
+                                    <div class="row align-items-center">
+                                        <div class="col-sm-12">
+                                            <h5 classname="card-title">List of submitted civil admissions</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center mb-4">
+                                        <div class="col-sm-2">
+                                            <select wire:model="perPage" class="form-control">
+                                                <option>10</option>
+                                                <option>25</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select wire:model="orderAsc" class="form-control">
+                                                <option value="1">Ascending</option>
+                                                <option value="0">Descending</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                                id="validationCustom01" placeholder="Search..">
+                                        </div>
+                                    </div>
+    
+                                    <div class="table-responsive project-list">
+                                        <table id="datatable"
+                                            class="table table-striped dt-responsive nowrap table-vertical dataTable no-footer dtr-inline"
+                                            style="border-collapse: collapse; border-spacing: 0px; width: 100%;" role="grid"
+                                            aria-describedby="datatable_info">
+                                            <thead>
+                                                <tr role="row">
+                                                    <th style="width: 50px;">#</th>
+                                                    <th style="width: 108px;">Reference #</th>
+                                                    <th style="width: 109px;">Case Type</th>
+                                                    <th style="width: 320px;">Case Parties</th>
+                                                    <th style="width: 200px;">Court</th>
+                                                    <th style="width: 65px;" class="text-center">Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr role="row" class="odd">
+                                                    <td>1</td>
+                                                    <td>20220421457707</td>
+                                                    <td>Civil Case</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Juma John
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">Juli July</p>
+                                                    </td>
+                                                    <td>Temeke High Court</td>
+                                                    <td class="text-center">
+    
+                                     
+                                                       <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a id="selectionDisplayer" class="btn btn-sm btn-info  fa fa-bars text-white dropdown-toggle   waves-effect waves-light"
+                                                                type="button" data-bs-toggle="dropdown" 
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="selectionDisplayer">
+                                                                    <a href="https://cms.judiciary.go.tz/civil/efiling/show/10000026/submitted"
+                                                                        class="dropdown-item"><i
+                                                                            class="fa fa-eye"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="fa fa-pencil"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="fa fa-trash"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+    
+                                                    </td>
+    
+    
+                                                </tr>
+    
+                                                <tr role="row" class="odd">
+                                                    <td>10</td>
+                                                    <td>20220321162795</td>
+                                                    <td>Miscellaneous Civil Cause</td>
+                                                    <td>
+                                                        <h6 class="mt-0 mb-1">Godfrey Luena &amp; 2 Another C/O Legal And
+                                                            Human Rights Centre
+                                                            <span class="badge badge-soft-dark font-12 ml-2">vs</span>
+                                                        </h6>
+                                                        <p class="m-0 font-14">District Commissioner Kilombero District C/O
+                                                            State Attorney</p>
+                                                    </td>
+                                                    <td>Dar es salaam Court of Appeal</td>
+                                                    <td class="text-center">
+                                                        <div class="d-none d-md-block">
+                                                            <div class="dropdown">
+                                                                <a id="selectionDisplayer" class="btn btn-sm btn-info  fa fa-bars text-white dropdown-toggle   waves-effect waves-light"
+                                                                type="button" data-bs-toggle="dropdown" 
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    <i class="dripicons-menu"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="selectionDisplayer">
+                                                                    <a href="https://cms.judiciary.go.tz/civil/efiling/show/10000006/submitted"
+                                                                        class="dropdown-item"><i
+                                                                            class="fa fa-eye"></i> View Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="fa fa-pencil"></i> Edit Case</a>
+                                                                    <a href="#" class="dropdown-item"><i
+                                                                            class="fa fa-trash"></i> Request
+                                                                        Delete</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+    
+                                        
+    
+    
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7"></div>
+                                <div class="col-5">
+                                    <div class="btn-group float-right">
+                                        <div>
+                                            <nav role="navigation" aria-label="Pagination Navigation"
+                                                class="flex justify-between">
+                                                <span>
+    
+                                                    <span
+                                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+                                                        « Previous
+                                                    </span>
+                                                </span>
+    
+                                                <span>
+    
+                                                    <button wire:click="nextPage('page')" wire:loading.attr="disabled"
+                                                        dusk="nextPage"
+                                                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                                        Next »
+                                                    </button>
+                                                </span>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

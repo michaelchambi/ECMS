@@ -1,0 +1,63 @@
+<div class="wrapper vh-100">
+    <div class="row align-items-center h-100">
+        <form class="col-lg-3 col-md-4 col-10 mx-auto myform" (ngSubmit)="loginUser()" #signForm=ngForm>
+            <div class="mx-auto text-center my-4">
+                <a class="navbar-brand mx-auto mt-2 flex-fill text-center" href="">
+                    <img class="mt-20" src="../../../../assets/images/favicon.ico"
+                        alt="" width="60" height="60">
+                </a>
+                <h2 class="h2 mb-4 text-center">Sign in to eCMS</h2>
+            </div>
+
+            <div *ngIf="alertErr" class="alert alert-warning text-center" role="alert">
+                {{error}}
+            </div>
+
+            <div *ngIf="alertPass" class="alert alert-warning text-center" role="alert">
+                {{errPass}}
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" [(ngModel)]="data.email" name="email" id="inputEmail" class="form-control"
+                        placeholder="Email address" required="" autofocus="">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" [(ngModel)]="data.password" name="password" id="inputPassword"
+                        class="form-control" placeholder="Password" required="">
+                </div>
+            </div>
+
+           
+
+            <button *ngIf="signing" class="btn btn-md btn-primary btn-block mb-4" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Signing in...
+            </button>
+
+            <button *ngIf="bfrsigin" class="btn btn-md btn-primary btn-block" type="submit"
+                [disabled]="!signForm.valid">Sign in</button>
+
+            <div class="text-center">
+                <p class="mt-15 mb-0">
+                    <a href="/forgot-password" class="hover-info">Forgot password?</a>
+                    
+                </p>
+            </div>
+            
+        </form>
+
+        <div class="mt-4 text-center text-black-50">
+            <p>Don't have an account ?
+                <a href="/register" class="font-500 text-primary"> Create an account
+                </a>
+            </p>
+            <p>© 2022 Case Management System. Judiciary of Tanzania.</p>
+        </div>
+    </div>
+</div>

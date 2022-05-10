@@ -1,0 +1,116 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    <div class="content">
+        <div class="container-fluid">
+            <div >
+                <div class="page-title-box">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <h4 class="page-title">Criminal Judgements</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="https://cms.judiciary.go.tz/dashboard">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item"><a href="javascript:void(0);">Case Decisions</a></li>
+                                <li class="breadcrumb-item active">Criminal Judgements</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    <div class="col-xl-12">
+    
+                        <div class="email-leftbar card">
+                            <div class="mail-list mt-4">
+                                <a href="#" class="active"><i class="mdi mdi-email-outline mr-2"></i> Judgements <span
+                                        class="ml-1 float-right">(0)</span></a>
+                                <a href="#"><i class="mdi mdi-star-outline mr-2"></i>Pending Judgements</a>
+                            </div>
+                        </div>
+    
+                        <div class="email-rightbar mb-3">
+    
+                            <div class="card">
+                                <div class="btn-toolbar p-3" role="toolbar">
+                                    <div class="btn-group mb-2 mb-sm-0">
+                                        <button type="button" class="btn btn-primary waves-light waves-effect"><i
+                                                class="fa fa-inbox"></i></button>
+                                        <button type="button" class="btn btn-primary waves-light waves-effect"><i
+                                                class="fa fa-exclamation-circle"></i></button>
+                                        <button type="button" class="btn btn-primary waves-light waves-effect"><i
+                                                class="far fa-trash-alt"></i></button>
+                                    </div>
+                                    <div class="btn-group ml-1 mb-2 mb-sm-0">
+                                        <button type="button"
+                                            class="btn btn-primary waves-light waves-effect dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-folder"></i>
+                                        </button>
+                                        <div class="dropdown-menu" x-placement="bottom-start"
+                                            style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+                                            <a class="dropdown-item" href="#">Updates</a>
+                                            <a class="dropdown-item" href="#">Social</a>
+                                            <a class="dropdown-item" href="#">Team Manage</a>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group ml-1 mb-2 mb-sm-0">
+                                        <button type="button"
+                                            class="btn btn-primary waves-light waves-effect dropdown-toggle"
+                                            data-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa fa-tag"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Updates</a>
+                                            <a class="dropdown-item" href="#">Social</a>
+                                            <a class="dropdown-item" href="#">Team Manage</a>
+                                        </div>
+                                    </div>
+    
+                                    <div class="btn-group ml-1 mb-2 mb-sm-0">
+                                        <select wire:model="orderAsc" class="form-control">
+                                            <option value="1">Ascending</option>
+                                            <option value="0">Descending</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                                            id="validationCustom01" placeholder="Search by reference number">
+                                    </div>
+                                </div>
+                                <ul class="message-list">
+                                </ul>
+    
+                            </div> <!-- card -->
+    
+                            <div class="row">
+                                <div class="col-7">
+    
+                                </div>
+                                <div class="col-5">
+                                    <div class="btn-group float-right">
+    
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

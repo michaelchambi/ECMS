@@ -1,0 +1,362 @@
+<div #sidebar appSidebar>
+</div>
+<div class="c-wrapper">
+  <header class="c-header c-header-light c-header-fixed c-header-shadow">    
+    <button matRipple class="c-header-toggler" id="seder" type="button" (click)="sidebar.toggle()">
+      <span class="c-header-toggler-icon"></span>
+    </button>
+    <div class="c-header-brand">
+      <strong>{{title|uppercase}}</strong>
+    </div>
+  </header>
+
+  <div class="c-body">
+    
+<div class="content">
+    <div class="container-fluid">
+        
+<div class="container mx-auto">
+<div wire:id="qbwZ3NF8DEi71oAWM0X2">
+<!--  create modal starts -->
+<div wire:ignore.self="" class="modal fade bs-example-modal-lg" id="createZoneModal" tabindex="-1" role="dialog" aria-labelledby="createZoneModal" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="createZoneModal">Add Zone</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-warning card-outline">
+                <div class="card card-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <i>add a new zone</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip01">Zone name</label>
+                                    <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter zone name" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip02">Code</label>
+                                    <input type="text" class="form-control" name="code" wire:model="code" id="validationTooltip02" placeholder="Enter zone code" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>
+<div class="modal-footer">
+    <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+        <i class="mdi mdi-close"></i> Close
+    </button>
+    <button wire:click.prevent="store()" type="submit" class="btn btn-primary">
+        <i class="mdi mdi-content-save"></i> Save zone
+    </button>
+</div>
+</div>
+</div>
+</div>
+<!--  create modal ends -->    <!--  update modal starts -->
+<div wire:ignore.self="" class="modal fade" id="updateZoneModal" tabindex="-1" role="dialog" aria-labelledby="updateZoneModal" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="updateZoneModal">Edit Zone</h5>
+<button wire:click.prevent="cancel()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-warning card-outline">
+                <div class="card card-header">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <i>edit the specified zone</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip01">Zone name</label>
+                                    <input type="text" class="form-control" name="name" wire:model="name" id="validationTooltip01" placeholder="Enter zone name" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group position-relative">
+                                    <label for="validationTooltip02">Code</label>
+                                    <input type="text" class="form-control" name="code" wire:model="code" id="validationTooltip02" placeholder="Enter zone code" required="">
+                                    <div class="mt-1">
+                                                                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+</div>
+<div class="modal-footer">
+    <button wire:click.prevent="cancel()" type="submit" class="btn btn-warning text-black-50 float-right" data-dismiss="modal">
+        <i class="mdi mdi-close"></i> Close
+    </button>
+    <button wire:click.prevent="update()" type="submit" class="btn btn-primary">
+        <i class="mdi mdi-content-save"></i> Save changes
+    </button>
+</div>
+</div>
+</div>
+</div>
+<!--  update modal ends -->    <div class="page-title-box">
+<div class="row align-items-center">
+<div class="col-sm-6">
+    <h4 class="page-title">Zones</h4>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="javascript:void(0);"><i class="mdi mdi-home-outline"></i></a>
+        </li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Locations</a></li>
+        <li class="breadcrumb-item active">Zones</li>
+    </ol>
+</div>
+</div> <!-- end row -->
+</div>
+<!-- end page-title -->
+
+
+<div class="row">
+<div class="col-12">
+<div class="card card-secondary card-outline">
+    <div class="card card-header">
+        <div class="row align-items-center">
+            <div class="col-sm-6">
+                <h5 classname="card-title">List of zones</h5>
+            </div>
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-secondary btn-sm 
+                        waves-effect waves-light float-right" data-toggle="modal" data-target="#createZoneModal">
+                    <i class="mdi mdi-plus"></i> New Zone
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row align-items-center mb-4">
+            <div class="col-sm-2">
+                <select wire:model="perPage" class="form-control">
+                    <option>10</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>100</option>
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <select wire:model="orderAsc" class="form-control">
+                    <option value="1">Ascending</option>
+                    <option value="0">Descending</option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <input wire:model.debounce.300ms="search" type="text" class="form-control" id="validationCustom01" placeholder="Search by zone name...">
+            </div>
+        </div>
+        <!-- end row -->
+
+        <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Zone name</th>
+                    <th>Code</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">1</td>
+                    <td class="col-sm-3">Arusha Zone</td>
+                    <td class="col-sm-3">ARS</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(2)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/2/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">2</td>
+                    <td class="col-sm-3">Bukoba Zone</td>
+                    <td class="col-sm-3">BKB</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(3)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/3/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">3</td>
+                    <td class="col-sm-3">Dar es Salaam Zone</td>
+                    <td class="col-sm-3">DSM</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(4)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/4/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">4</td>
+                    <td class="col-sm-3">Dodoma Zone</td>
+                    <td class="col-sm-3">DDM</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(5)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/5/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">5</td>
+                    <td class="col-sm-3">Iringa Zone</td>
+                    <td class="col-sm-3">IRA</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(6)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/6/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">6</td>
+                    <td class="col-sm-3">Mbeya Zone</td>
+                    <td class="col-sm-3">MBY</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(7)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/7/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">7</td>
+                    <td class="col-sm-3">Moshi Zone</td>
+                    <td class="col-sm-3">MSH</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(8)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/8/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">8</td>
+                    <td class="col-sm-3">Mtwara Zone</td>
+                    <td class="col-sm-3">MTR</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(9)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/9/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">9</td>
+                    <td class="col-sm-3">Mwanza Zone</td>
+                    <td class="col-sm-3">MZA</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(10)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/10/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                            <tr role="role" class="even">
+                    <td class="col-sm-1">10</td>
+                    <td class="col-sm-3">Shinyanga Zone</td>
+                    <td class="col-sm-3">SHY</td>
+                    <td class="col-sm-2">
+                        <a title="Edit" data-toggle="modal" data-target="#updateZoneModal" wire:click.prevent="edit(11)" href="#">
+                            <i class="mdi mdi-pencil text-primary fa fa-pencil"></i>
+                        </a>
+                        <a title="Delete" href="https://cms.judiciary.go.tz/locations/zones/11/delete" >
+                            <i class="text-danger fa fa-close"></i>
+                        </a>
+                    </td>
+                </tr>
+                                        </tbody>
+        </table>
+        <div>
+<nav role="navigation" aria-label="Pagination Navigation" class="flex justify-between">
+<span>
+    
+                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 cursor-default leading-5 rounded-md select-none">
+            « Previous
+        </span>
+                </span>
+
+<span>
+    
+                                                <button wire:click="nextPage('page')" wire:loading.attr="disabled" dusk="nextPage" class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                    Next »
+            </button>
+                                    </span>
+</nav>
+</div>
+    </div>
+</div>
+</div> <!-- end col -->
+</div> <!-- end row -->
+</div>
+</div>
+
+
+    </div>
+</div>
+  </div>
+</div>
+
