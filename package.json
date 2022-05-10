@@ -1,6 +1,6 @@
 {
   "name": "cms",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "clean": "npx rimraf dist",
@@ -74,5 +74,13 @@
   "description": "<p align=\"center\">     <img alt=\"GitHub Actions status\" src=\"https://github.com/sterlp/CMS/workflows/CMS%20CI/badge.svg\"> </p>",
   "main": "karma.conf.js",
   "author": "Michael Chambi",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelchambi/ECMS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelchambi/ECMS/issues"
+  },
+  "homepage": "https://github.com/michaelchambi/ECMS#readme"
 }
